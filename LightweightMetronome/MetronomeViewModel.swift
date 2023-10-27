@@ -12,6 +12,8 @@ final class ViewModel: ObservableObject {
     
     @Published var bpm = 60
     @Published var isPlaying = false
+    @Published var pressed = false
+    @Published var longPressed = false
     
     private let audioEngine = AudioEngine()
     private let sampleTimer = SampleTimer()
@@ -47,5 +49,13 @@ final class ViewModel: ObservableObject {
             sampleTimer.start(interval: 60.0 / Double(bpm))
             isPlaying = true
         }
+    }
+    
+    func progressiveIncBPM() {
+        print("inc")
+    }
+    
+    func progressiveDecBPM() {
+        print("dec")
     }
 }

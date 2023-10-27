@@ -27,6 +27,9 @@ struct MetronomeView: View {
                                 vm.stopMetronome()
                             }
                         }
+                        .onLongPressGesture(minimumDuration: 0.1) {
+                            vm.bpm -= 10
+                        }
                     Text("\(vm.bpm) BPM")
                         .font(.system(size: 24))
                         .padding()
@@ -38,6 +41,9 @@ struct MetronomeView: View {
                             if vm.isPlaying {
                                 vm.stopMetronome()
                             }
+                        }
+                        .onLongPressGesture(minimumDuration: 0.1) {
+                            vm.bpm += 10
                         }
                 }
                 Image(systemName: vm.isPlaying ? "pause.fill" : "play.fill")
