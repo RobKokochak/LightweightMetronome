@@ -34,18 +34,18 @@ final class ViewModel: ObservableObject {
         subscribeToTimer()
     }
     
+    func stopMetronome() {
+        if sampleTimer.started {
+            sampleTimer.stop()
+            isPlaying = false
+        }
+    }
+    
     func startMetronome() {
         stopMetronome()
         if !sampleTimer.started {
             sampleTimer.start(interval: 60.0 / Double(bpm))
             isPlaying = true
-        }
-    }
-    
-    func stopMetronome() {
-        if sampleTimer.started {
-            sampleTimer.stop()
-            isPlaying = false
         }
     }
 }

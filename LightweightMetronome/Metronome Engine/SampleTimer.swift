@@ -14,11 +14,11 @@ class SampleTimer: ObservableObject {
     var timerFired = PassthroughSubject<Bool, Never>()
 
     func start(interval: TimeInterval) {
-        let queue = DispatchQueue(label: "com.robk.lightweightmetronome.timer", qos: .userInteractive)
+        let queue = DispatchQueue(label: "MetronomeInterval", qos: .userInteractive)
         timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
         timer?.schedule(deadline: .now(), repeating: interval, leeway: .nanoseconds(0))
         timer?.setEventHandler {
-            // Is there a better way to send a one shot event?  Sending a Bool here is just a hack to send SOMETHING.
+            // Is there a better way to send a one shot event? Sending a Bool here is just a hack to send SOMETHING.
             DispatchQueue.main.async {
                 self.timerFired.send(true)
             }
@@ -30,10 +30,5 @@ class SampleTimer: ObservableObject {
     func stop() {
         timer?.cancel()
         started = false
-    }
-    
-    func updateTimer(interval: TimeInterval) {
-        stop()
-        start(interval: interval)
     }
 }

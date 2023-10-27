@@ -24,7 +24,7 @@ struct MetronomeView: View {
                         .onTapGesture {
                             vm.bpm -= 1
                             if vm.isPlaying {
-                                vm.startMetronome()
+                                vm.stopMetronome()
                             }
                         }
                     Text("\(vm.bpm) BPM")
@@ -36,7 +36,7 @@ struct MetronomeView: View {
                         .onTapGesture {
                             vm.bpm += 1
                             if vm.isPlaying {
-                                vm.startMetronome()
+                                vm.stopMetronome()
                             }
                         }
                 }
