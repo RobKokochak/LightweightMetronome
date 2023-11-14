@@ -13,7 +13,7 @@ struct MetronomeView: View {
     var body: some View {
         LinearGradient(
             gradient: Gradient(colors: [Color.orange, Color.yellow]),
-            startPoint: .leading, endPoint: .trailing)
+            startPoint: .bottomTrailing, endPoint: .topLeading)
         .edgesIgnoringSafeArea(.all)
         .overlay(
             VStack {
@@ -22,13 +22,17 @@ struct MetronomeView: View {
                         .resizable()
                         .frame(width: 50, height: 50)
                         .onTapGesture {
-                            vm.bpm -= 1
+                            if vm.bpm > 1 {
+                                vm.bpm -= 1
+                            }
                             if vm.isPlaying {
                                 vm.stopMetronome()
                             }
                         }
                         .onLongPressGesture(minimumDuration: 0.1) {
-                            vm.bpm -= 20
+                            if vm.bpm > 20 {
+                                vm.bpm -= 20
+                            }
                             if vm.isPlaying {
                                 vm.stopMetronome()
                             }
@@ -40,13 +44,17 @@ struct MetronomeView: View {
                         .resizable()
                         .frame(width: 50, height: 50)
                         .onTapGesture {
-                            vm.bpm += 1
+                            if vm.bpm < 350 {
+                                vm.bpm += 1
+                            }
                             if vm.isPlaying {
                                 vm.stopMetronome()
                             }
                         }
                         .onLongPressGesture(minimumDuration: 0.1) {
-                            vm.bpm += 20
+                            if vm.bpm < 331 {
+                                vm.bpm += 20
+                            }
                             if vm.isPlaying {
                                 vm.stopMetronome()
                             }
