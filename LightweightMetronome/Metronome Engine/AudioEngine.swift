@@ -1,10 +1,3 @@
-//
-//  AudioEngine.swift
-//  LightweightMetronome
-//
-//  Created by Rob Kokochak on 10/27/23.
-//
-
 import Foundation
 import AVFoundation
 
@@ -17,8 +10,8 @@ class AudioEngine: ObservableObject {
         }
         
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
-            try AVAudioSession.sharedInstance().setActive(true, options: [.notifyOthersOnDeactivation])
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+//            try AVAudioSession.sharedInstance().setActive(true, options: [.notifyOthersOnDeactivation])
             
             audioPlayer = try AVAudioPlayer(contentsOf: metSound)
             audioPlayer?.numberOfLoops = 0
