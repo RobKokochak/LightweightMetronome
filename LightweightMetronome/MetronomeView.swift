@@ -5,7 +5,7 @@ struct MetronomeView: View {
     
     var body: some View {
         LinearGradient(
-            gradient: Gradient(colors: [Color.purple, Color.red]),
+            gradient: Gradient(colors: [Color.orange, Color.yellow]),
             startPoint: .bottomTrailing, endPoint: .topLeading)
         .edgesIgnoringSafeArea(.all)
         .overlay(
