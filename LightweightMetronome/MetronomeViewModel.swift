@@ -11,12 +11,17 @@ import Combine
 final class ViewModel: ObservableObject {
     
     @Published var bpm = 60
+    @Published var volume = 0.75
     @Published var isPlaying = false
     
     private let audioEngine = AudioEngine()
     private let sampleTimer = SampleTimer()
     
     private var store: [AnyCancellable] = []
+    
+    init() {
+        subscribeToTimer()
+    }
     
     private func subscribeToTimer() {
         sampleTimer.timerFired
@@ -27,11 +32,7 @@ final class ViewModel: ObservableObject {
     }
     
     private func handleTimerFired() {
-        self.audioEngine.startPlayer()
-    }
-    
-    init() {
-        subscribeToTimer()
+        self.audioEngine.startPlayer(volume: Float(volume))
     }
     
     func stopMetronome() {

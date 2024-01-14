@@ -18,6 +18,13 @@ struct MetronomeView: View {
                             Circle().stroke(lineWidth: 5)
                         )
                         .clipShape(Circle())
+                        .onHover { inside in
+                                    if inside {
+                                        NSCursor.pointingHand.set()
+                                    } else {
+                                        NSCursor.arrow.set()
+                                    }
+                                }
                         .onTapGesture {
                             if vm.bpm - 10 > 0 {
                                 vm.bpm -= 10
@@ -36,6 +43,13 @@ struct MetronomeView: View {
                             Circle().stroke(lineWidth: 5)
                         )
                         .clipShape(Circle())
+                        .onHover { inside in
+                                    if inside {
+                                        NSCursor.pointingHand.set()
+                                    } else {
+                                        NSCursor.arrow.set()
+                                    }
+                                }
                         .onTapGesture {
                             if vm.bpm > 1 {
                                 vm.bpm -= 1
@@ -56,6 +70,13 @@ struct MetronomeView: View {
                             Circle().stroke(lineWidth: 5)
                         )
                         .clipShape(Circle())
+                        .onHover { inside in
+                                    if inside {
+                                        NSCursor.pointingHand.set()
+                                    } else {
+                                        NSCursor.arrow.set()
+                                    }
+                                }
                         .onTapGesture {
                             if vm.bpm < 350 {
                                 vm.bpm += 1
@@ -71,6 +92,13 @@ struct MetronomeView: View {
                             Circle().stroke(lineWidth: 5)
                         )
                         .clipShape(Circle())
+                        .onHover { inside in
+                                    if inside {
+                                        NSCursor.pointingHand.set()
+                                    } else {
+                                        NSCursor.arrow.set()
+                                    }
+                                }
                         .onTapGesture {
                             if vm.bpm + 10 > 350 {
                                 vm.bpm = 350
@@ -86,6 +114,13 @@ struct MetronomeView: View {
                 Image(systemName: vm.isPlaying ? "pause.fill" : "play.fill")
                     .resizable()
                     .frame(width: 40, height: 40)
+                    .onHover { inside in
+                                if inside {
+                                    NSCursor.pointingHand.set()
+                                } else {
+                                    NSCursor.arrow.set()
+                                }
+                            }
                     .onTapGesture {
                         vm.isPlaying.toggle()
                         if vm.isPlaying {
@@ -96,6 +131,10 @@ struct MetronomeView: View {
                         }
                     }
                     .padding()
+                Slider(value: $vm.volume)
+                    .padding()
+                    .frame(width: 300)
+                    .tint(.black)
             }
                 .foregroundColor(.black)
         )

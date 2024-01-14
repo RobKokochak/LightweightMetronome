@@ -1,6 +1,7 @@
 import Foundation
 import AVFoundation
 
+
 class AudioEngine: ObservableObject {
     private var audioPlayer: AVAudioPlayer? = nil
     
@@ -10,6 +11,7 @@ class AudioEngine: ObservableObject {
         }
         
         do {
+            // uncomment these for iOS
 //            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
 //            try AVAudioSession.sharedInstance().setActive(true, options: [.notifyOthersOnDeactivation])
             
@@ -26,7 +28,7 @@ class AudioEngine: ObservableObject {
         setupPlayer()
     }
     
-    func startPlayer() {
+    func startPlayer(volume: Float) {
         guard let player = audioPlayer else {
             fatalError("could not start audioPlayer")
         }
@@ -35,6 +37,7 @@ class AudioEngine: ObservableObject {
             player.stop()
             player.currentTime = 0
         }
+        player.volume = pow(volume, 2.25)
         player.play()
     }
 }
