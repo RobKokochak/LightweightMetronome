@@ -10,7 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         MetronomeView()
-            .frame(minWidth: 400, idealWidth: 500, maxWidth: .infinity, minHeight: 300, idealHeight: 500, maxHeight: .infinity)
+            .frame(
+                minWidth: 300,
+                idealWidth: 600,
+                maxWidth: .infinity,
+                minHeight: 300,
+                idealHeight: 500,
+                maxHeight: .infinity
+            )
     }
 }
 

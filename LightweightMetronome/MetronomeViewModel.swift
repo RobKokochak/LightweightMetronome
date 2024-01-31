@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class ViewModel: ObservableObject {
+final class MetronomeViewModel: ObservableObject {
     
     @Published var bpm = 60
     @Published var volume = 0.75
@@ -43,7 +43,6 @@ final class ViewModel: ObservableObject {
     }
     
     func startMetronome() {
-        stopMetronome()
         if !sampleTimer.started {
             sampleTimer.start(interval: 60.0 / Double(bpm))
             isPlaying = true

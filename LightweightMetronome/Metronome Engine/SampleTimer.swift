@@ -18,7 +18,6 @@ class SampleTimer: ObservableObject {
         timer = DispatchSource.makeTimerSource(flags: .strict, queue: queue)
         timer?.schedule(deadline: .now(), repeating: interval, leeway: .nanoseconds(0))
         timer?.setEventHandler {
-            // Is there a better way to send a one shot event? Sending a Bool here is just a hack to send SOMETHING.
             DispatchQueue.main.async {
                 self.timerFired.send(true)
             }

@@ -37,7 +37,7 @@ class AudioEngine: ObservableObject {
             player.stop()
             player.currentTime = 0
         }
-        player.volume = pow(volume, 2.25)
+        player.volume = pow(volume, 2.25) // convert to exp for more natural volume perception
         player.play()
     }
 }

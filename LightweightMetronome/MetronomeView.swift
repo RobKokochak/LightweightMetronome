@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct MetronomeView: View {
-    @StateObject private var vm = ViewModel()
+    @StateObject private var vm = MetronomeViewModel()
     
     var body: some View {
         LinearGradient(
             gradient: Gradient(colors: [Color.orange, Color.yellow]),
             startPoint: .bottomTrailing, endPoint: .topLeading)
         .edgesIgnoringSafeArea(.all)
-        .overlay(
+        .overlay {
             VStack {
                 HStack {
                     Text("-10")
@@ -19,12 +19,12 @@ struct MetronomeView: View {
                         )
                         .clipShape(Circle())
                         .onHover { inside in
-                                    if inside {
-                                        NSCursor.pointingHand.set()
-                                    } else {
-                                        NSCursor.arrow.set()
-                                    }
-                                }
+                            if inside {
+                                NSCursor.pointingHand.set()
+                            } else {
+                                NSCursor.arrow.set()
+                            }
+                        }
                         .onTapGesture {
                             if vm.bpm - 10 > 0 {
                                 vm.bpm -= 10
@@ -34,6 +34,7 @@ struct MetronomeView: View {
                             }
                             if vm.isPlaying {
                                 vm.stopMetronome()
+                                vm.startMetronome()
                             }
                         }
                     Text("-1")
@@ -44,18 +45,19 @@ struct MetronomeView: View {
                         )
                         .clipShape(Circle())
                         .onHover { inside in
-                                    if inside {
-                                        NSCursor.pointingHand.set()
-                                    } else {
-                                        NSCursor.arrow.set()
-                                    }
-                                }
+                            if inside {
+                                NSCursor.pointingHand.set()
+                            } else {
+                                NSCursor.arrow.set()
+                            }
+                        }
                         .onTapGesture {
                             if vm.bpm > 1 {
                                 vm.bpm -= 1
                             }
                             if vm.isPlaying {
                                 vm.stopMetronome()
+                                vm.startMetronome()
                             }
                         }
                     
@@ -71,18 +73,19 @@ struct MetronomeView: View {
                         )
                         .clipShape(Circle())
                         .onHover { inside in
-                                    if inside {
-                                        NSCursor.pointingHand.set()
-                                    } else {
-                                        NSCursor.arrow.set()
-                                    }
-                                }
+                            if inside {
+                                NSCursor.pointingHand.set()
+                            } else {
+                                NSCursor.arrow.set()
+                            }
+                        }
                         .onTapGesture {
                             if vm.bpm < 350 {
                                 vm.bpm += 1
                             }
                             if vm.isPlaying {
                                 vm.stopMetronome()
+                                vm.startMetronome()
                             }
                         }
                     Text("+10")
@@ -93,12 +96,12 @@ struct MetronomeView: View {
                         )
                         .clipShape(Circle())
                         .onHover { inside in
-                                    if inside {
-                                        NSCursor.pointingHand.set()
-                                    } else {
-                                        NSCursor.arrow.set()
-                                    }
-                                }
+                            if inside {
+                                NSCursor.pointingHand.set()
+                            } else {
+                                NSCursor.arrow.set()
+                            }
+                        }
                         .onTapGesture {
                             if vm.bpm + 10 > 350 {
                                 vm.bpm = 350
@@ -108,6 +111,7 @@ struct MetronomeView: View {
                             }
                             if vm.isPlaying {
                                 vm.stopMetronome()
+                                vm.startMetronome()
                             }
                         }
                 }
@@ -115,12 +119,12 @@ struct MetronomeView: View {
                     .resizable()
                     .frame(width: 40, height: 40)
                     .onHover { inside in
-                                if inside {
-                                    NSCursor.pointingHand.set()
-                                } else {
-                                    NSCursor.arrow.set()
-                                }
-                            }
+                        if inside {
+                            NSCursor.pointingHand.set()
+                        } else {
+                            NSCursor.arrow.set()
+                        }
+                    }
                     .onTapGesture {
                         vm.isPlaying.toggle()
                         if vm.isPlaying {
@@ -136,8 +140,8 @@ struct MetronomeView: View {
                     .frame(width: 300)
                     .tint(.black)
             }
-                .foregroundColor(.black)
-        )
+            .foregroundColor(.black)
+        }
     }
 }
 
