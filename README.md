@@ -1,6 +1,6 @@
 #  Lightweight Metronome
 
-Built as a simple practice tool for personal use.
+A native metronome app for MacOS, built using SwiftUI. Built to be simple, straightforward and efficient. 
 <p align="center">
 <img src="app-screenshot2.PNG" width="200">
 </p>
