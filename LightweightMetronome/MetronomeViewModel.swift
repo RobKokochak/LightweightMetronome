@@ -48,4 +48,11 @@ final class MetronomeViewModel: ObservableObject {
             isPlaying = true
         }
     }
+    
+    func resetBPM() {
+        if sampleTimer.started {
+            sampleTimer.stop()
+            sampleTimer.start(interval: 60.0 / Double(bpm))
+        }
+    }
 }

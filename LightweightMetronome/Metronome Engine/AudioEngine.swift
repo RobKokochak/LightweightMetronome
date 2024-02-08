@@ -18,7 +18,7 @@ class AudioEngine: ObservableObject {
             audioPlayer = try AVAudioPlayer(contentsOf: metSound)
             audioPlayer?.numberOfLoops = 0
             audioPlayer?.prepareToPlay()
-        } 
+        }
         catch {
             print("Failed to load met sound: \(error.localizedDescription)")
         }
@@ -32,12 +32,14 @@ class AudioEngine: ObservableObject {
         guard let player = audioPlayer else {
             fatalError("could not start audioPlayer")
         }
-
+        
         if player.isPlaying {
             player.stop()
             player.currentTime = 0
         }
         player.volume = pow(volume, 2.25) // convert to exp for more natural volume perception
-        player.play()
+        DispatchQueue.global(qos: .userInteractive).async {
+            player.play()
+        }
     }
 }

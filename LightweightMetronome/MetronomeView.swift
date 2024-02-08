@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MetronomeView: View {
     @StateObject private var vm = MetronomeViewModel()
+    @FocusState private var focused: Bool
     
     var body: some View {
         LinearGradient(
@@ -12,7 +13,7 @@ struct MetronomeView: View {
             VStack {
                 HStack {
                     Text("-10")
-                        .font(.system(size: 14, design: .monospaced))
+                        .font(.system(size: 16))
                         .padding(12)
                         .overlay(
                             Circle().stroke(lineWidth: 5)
@@ -33,12 +34,11 @@ struct MetronomeView: View {
                                 vm.bpm = 1
                             }
                             if vm.isPlaying {
-                                vm.stopMetronome()
-                                vm.startMetronome()
+                                vm.resetBPM()
                             }
                         }
                     Text("-1")
-                        .font(.system(size: 24, design: .monospaced))
+                        .font(.system(size: 26))
                         .padding(12)
                         .overlay(
                             Circle().stroke(lineWidth: 5)
@@ -56,17 +56,16 @@ struct MetronomeView: View {
                                 vm.bpm -= 1
                             }
                             if vm.isPlaying {
-                                vm.stopMetronome()
-                                vm.startMetronome()
+                                vm.resetBPM()
                             }
                         }
                     
                     Text("\(vm.bpm) BPM")
-                        .font(.system(size: 24, design: .monospaced))
+                        .font(.system(size: 28))
                         .padding()
                     
                     Text("+1")
-                        .font(.system(size: 24, design: .monospaced))
+                        .font(.system(size: 26))
                         .padding(12)
                         .overlay(
                             Circle().stroke(lineWidth: 5)
@@ -80,16 +79,15 @@ struct MetronomeView: View {
                             }
                         }
                         .onTapGesture {
-                            if vm.bpm < 350 {
+                            if vm.bpm < 400 {
                                 vm.bpm += 1
                             }
                             if vm.isPlaying {
-                                vm.stopMetronome()
-                                vm.startMetronome()
+                                vm.resetBPM()
                             }
                         }
                     Text("+10")
-                        .font(.system(size: 14, design: .monospaced))
+                        .font(.system(size: 16))
                         .padding(12)
                         .overlay(
                             Circle().stroke(lineWidth: 5)
@@ -103,15 +101,14 @@ struct MetronomeView: View {
                             }
                         }
                         .onTapGesture {
-                            if vm.bpm + 10 > 350 {
-                                vm.bpm = 350
+                            if vm.bpm + 10 > 400 {
+                                vm.bpm = 400
                             }
                             else {
                                 vm.bpm += 10
                             }
                             if vm.isPlaying {
-                                vm.stopMetronome()
-                                vm.startMetronome()
+                                vm.resetBPM()
                             }
                         }
                 }
@@ -134,6 +131,7 @@ struct MetronomeView: View {
                             vm.stopMetronome()
                         }
                     }
+                    
                     .padding()
                 Slider(value: $vm.volume)
                     .padding()
@@ -141,6 +139,48 @@ struct MetronomeView: View {
                     .tint(.black)
             }
             .foregroundColor(.black)
+        }
+        .focusable()
+        .focused($focused)
+        .onKeyPress { press in
+            switch press.characters {
+            case " ":
+                DispatchQueue.main.async {
+                    vm.isPlaying.toggle()
+                    if vm.isPlaying {
+                        vm.startMetronome()
+                    }
+                    else {
+                        vm.stopMetronome()
+                    }
+                }
+                return .handled
+            case ",":
+                DispatchQueue.main.async {
+                    if vm.bpm > 1 {
+                        vm.bpm -= 1
+                    }
+                    if vm.isPlaying {
+                        vm.resetBPM()
+                    }
+                }
+                return .handled
+            case ".":
+                DispatchQueue.main.async {
+                    if vm.bpm < 400 {
+                        vm.bpm += 1
+                    }
+                    if vm.isPlaying {
+                        vm.resetBPM()
+                    }
+                }
+                return .handled
+            default:
+                return .ignored
+            }
+        }
+        .onAppear {
+            focused = true
         }
     }
 }

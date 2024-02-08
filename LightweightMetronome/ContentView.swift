@@ -11,11 +11,11 @@ struct ContentView: View {
     var body: some View {
         MetronomeView()
             .frame(
-                minWidth: 300,
-                idealWidth: 600,
+                minWidth: 450,
+                idealWidth: 500,
                 maxWidth: .infinity,
                 minHeight: 300,
-                idealHeight: 500,
+                idealHeight: 350,
                 maxHeight: .infinity
             )
     }

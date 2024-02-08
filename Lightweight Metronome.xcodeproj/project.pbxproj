@@ -20,7 +20,7 @@
 
 /* Begin PBXFileReference section */
 		D48668E32AF05FC30021072D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D48BFA582AEC2D1600B71AEF /* LightweightMetronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightweightMetronome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D48BFA582AEC2D1600B71AEF /* Lightweight Metronome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lightweight Metronome.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48BFA5B2AEC2D1600B71AEF /* LightweightMetronomeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightweightMetronomeApp.swift; sourceTree = "<group>"; };
 		D48BFA5D2AEC2D1600B71AEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D48BFA5F2AEC2D1800B71AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		D48BFA592AEC2D1600B71AEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D48BFA582AEC2D1600B71AEF /* LightweightMetronome.app */,
+				D48BFA582AEC2D1600B71AEF /* Lightweight Metronome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D48BFA572AEC2D1600B71AEF /* LightweightMetronome */ = {
+		D48BFA572AEC2D1600B71AEF /* Lightweight Metronome */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D48BFA672AEC2D1800B71AEF /* Build configuration list for PBXNativeTarget "LightweightMetronome" */;
+			buildConfigurationList = D48BFA672AEC2D1800B71AEF /* Build configuration list for PBXNativeTarget "Lightweight Metronome" */;
 			buildPhases = (
 				D48BFA542AEC2D1600B71AEF /* Sources */,
 				D48BFA552AEC2D1600B71AEF /* Frameworks */,
@@ -109,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = LightweightMetronome;
+			name = "Lightweight Metronome";
 			productName = LightweightMetronome;
-			productReference = D48BFA582AEC2D1600B71AEF /* LightweightMetronome.app */;
+			productReference = D48BFA582AEC2D1600B71AEF /* Lightweight Metronome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +129,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D48BFA532AEC2D1600B71AEF /* Build configuration list for PBXProject "LightweightMetronome" */;
+			buildConfigurationList = D48BFA532AEC2D1600B71AEF /* Build configuration list for PBXProject "Lightweight Metronome" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -142,7 +142,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D48BFA572AEC2D1600B71AEF /* LightweightMetronome */,
+				D48BFA572AEC2D1600B71AEF /* Lightweight Metronome */,
 			);
 		};
 /* End PBXProject section */
@@ -309,6 +309,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Lightweight Metronome";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -316,6 +317,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -349,6 +351,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Lightweight Metronome";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -356,6 +359,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -378,7 +382,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D48BFA532AEC2D1600B71AEF /* Build configuration list for PBXProject "LightweightMetronome" */ = {
+		D48BFA532AEC2D1600B71AEF /* Build configuration list for PBXProject "Lightweight Metronome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D48BFA652AEC2D1800B71AEF /* Debug */,
@@ -387,7 +391,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D48BFA672AEC2D1800B71AEF /* Build configuration list for PBXNativeTarget "LightweightMetronome" */ = {
+		D48BFA672AEC2D1800B71AEF /* Build configuration list for PBXNativeTarget "Lightweight Metronome" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D48BFA682AEC2D1800B71AEF /* Debug */,
